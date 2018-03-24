@@ -1,5 +1,5 @@
 {
-  "name": "@tencent/arms-tmpl-webpack2",
+  "name": "arms-tmpl-webpack2",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
