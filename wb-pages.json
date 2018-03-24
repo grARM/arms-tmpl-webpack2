@@ -1,0 +1,21 @@
+{
+	"tmpl": "webpack2",
+	"pages": {
+		"index": {
+			"title": "首页",
+			"entry": "./src/js/index.js",
+			"modules": [
+				"header"
+			]
+		},
+		"list": {
+			"title": "列表页",
+			"entry": "./src/js/list.js",
+			"modules": [
+				"header"
+			]
+		}
+	}
+
+
+}
