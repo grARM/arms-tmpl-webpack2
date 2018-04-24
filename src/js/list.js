@@ -1,3 +1,5 @@
+/* eslint no-console: "off" */
+
 console.log('page: list');
 // QT.config({
 //     environment: {source:"testbridge"}
@@ -5,8 +7,6 @@ console.log('page: list');
 
 require('../sass/list.scss');
 
-
-
-$(document).ready(function(){
-	
+$(document).ready(function () {
+  // ready
 });

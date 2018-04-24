@@ -1,4 +1,4 @@
-/*! This file is modified at:1521708675763 */
+/*! This file is modified at:1524557766459 */
 /* 
 html5doctor.com Reset Stylesheet
 v1.4.1 
@@ -110,11 +110,6 @@ a {
   *zoom: 1; }
 
 /********animate*******/
-@-webkit-keyframes rotation {
-  from {
-    -webkit-transform: rotate(0deg); }
-  to {
-    -webkit-transform: rotate(360deg); } }
 
 .rotation {
   -webkit-transform: rotate(360deg);

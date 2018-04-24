@@ -1,11 +1,12 @@
-var $$tools = require('./tools.js');
+/* eslint no-console: "off" */
+let $$tools = require('./tools.js');
 // console.log('NODE_ENV: ', NODE_ENV);
-var log = function(){};
+let log = function(){};
 if(NODE_ENV != 'prodution'){
     log = console.log;
 }
 
-var alertIE = function(str){
+let alertIE = function(str){
     if($$tools.isIE() && window.alertIEopen){
         //alert.apply(this, arguments);
         alert(str);

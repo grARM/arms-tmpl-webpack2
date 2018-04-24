@@ -1,4 +1,4 @@
-/*! This file is modified at:1521708675763 */
+/*! This file is modified at:1524557766459 */
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -64,7 +64,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -77,12 +77,36 @@ module.exports = jQuery;
 /* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
+/* eslint no-console: "off" */
+let $$tools = __webpack_require__(7);
+// console.log('NODE_ENV: ', NODE_ENV);
+let log = function () {};
+if (true) {
+    log = console.log;
+}
 
+let alertIE = function (str) {
+    if ($$tools.isIE() && window.alertIEopen) {
+        //alert.apply(this, arguments);
+        alert(str);
+    }
 
-var moduleReady = function moduleReady(callback) {
-    var logReady = "module header ready!";
-    console.log(logReady);
+    // alert.apply(this, arguments);
+};
+
+module.exports = {
+    log: log,
+    alertIE: alertIE
+};
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+var moduleReady = function (callback) {
+    // let logReady = "module header ready!"
+    callback && callback();
+    // console.log(logReady);
 };
 
 module.exports = {
@@ -90,47 +114,121 @@ module.exports = {
 };
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 3 */,
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
+/* 4 */,
+/* 5 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function($) {
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* WEBPACK VAR INJECTION */(function($) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lib_log_js__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lib_log_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__lib_log_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__module_header_header_js__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__module_header_header_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__module_header_header_js__);
 
-var _header = __webpack_require__(1);
-
-var _header2 = _interopRequireDefault(_header);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-console.log('page: index');
+__WEBPACK_IMPORTED_MODULE_0__lib_log_js___default.a.log('page: index');
 // QT.config({
 //     environment: {source:"testbridge"}
 // });
 
-__webpack_require__(2);
+__webpack_require__(3);
+
+
 
 // console.log('jq', $);
-// console.log('QT', QT);
-// console.log('MtaH5：  ', MtaH5);
-//MtaH5.clickStat('POPUP_FAILED');
-
-//QTDictionaryTips
-// console.log('QTDictionaryTips', QTDictionaryTips);
-
 
 $(document).ready(function () {
-    var env = "dev";
-    (function (x) {
-        console.log('NODE_ENV: ', x);
-    })(env);
+  let env = "dev";
+  (x => {
+    __WEBPACK_IMPORTED_MODULE_0__lib_log_js___default.a.log('NODE_ENV: ', x);
+  })(env);
+  __WEBPACK_IMPORTED_MODULE_1__module_header_header_js___default.a.init();
 });
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
+
+/***/ }),
+/* 6 */,
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function($) {// cookie
+
+/**
+ * 设置cookie
+ */
+module.exports.setCookie = function (cname, cvalue, exdays) {
+  let d = new Date();
+  d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+  let expires = 'expires=' + d.toUTCString();
+  document.cookie = cname + '=' + cvalue + '; ' + expires;
+};
+
+/**
+ * 获取cookie
+ */
+module.exports.getCookie = function (cname) {
+  let name = cname + '=';
+  let ca = document.cookie.split(';');
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) === ' ') c = c.substring(1);
+    if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
+  }
+  return '';
+};
+
+/**
+ * 清除cookie
+ */
+module.exports.clearCookie = function (name) {
+  this.setCookie(name, '', -1);
+};
+
+// url
+
+/**
+ * 获取url hash map
+ */
+module.exports.getUrlHash = function () {
+  let hashObj = {};
+  let hash = window.location.hash.split('#')[1];
+  if (!hash || typeof hash === 'undefined' || hash === '') {
+    return hashObj;
+  }
+  let kAndvArr = hash.split('&');
+  $.each(kAndvArr, function (i, v) {
+    hashObj[v.split('=')[0]] = decodeURIComponent(v.split('=')[1]);
+  });
+  return hashObj;
+};
+
+/**
+ * 获取url search 参数
+ */
+module.exports.getUrlSearch = function () {
+  let paramObj = {};
+  let param = window.location.search.split('?')[1];
+  if (!param || typeof param === 'undefined' || param === '') {
+    return paramObj;
+  }
+  let kAndvArr = param.split('&');
+  $.each(kAndvArr, function (i, v) {
+    paramObj[v.split('=')[0]] = decodeURIComponent(v.split('=')[1]);
+  });
+  return paramObj;
+};
+
+/**
+ * 判断是否为IE
+ */
+module.exports.isIE = function () {
+  return navigator.userAgent.indexOf('MSIE') > -1 || navigator.userAgent.indexOf('Edge') > -1;
+};
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ })

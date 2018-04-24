@@ -12,6 +12,19 @@ webpack(webpackProdConfig, function (err, stats){
     if(err){
         console.log('\n编译失败err: ', err);
     }else{
+        process.stdout.write(stats.toString({
+          colors: true,
+          modules: false,
+          children: false, // If you are using ts-loader, setting this to true will make TypeScript errors show up during build.
+          chunks: false,
+          chunkModules: false
+        }) + '\n\n')
+
+        // if (stats.hasErrors()) {
+        //   console.log(('  Build failed with errors.\n'))
+        //   console.log('\n编译失败err: ');
+        //   process.exit(1)
+        // }
         if(process.env.NODE_ENV == 'dev'){
             console.log('\n编译成功！   继续监听文件修改...');
         }else{
