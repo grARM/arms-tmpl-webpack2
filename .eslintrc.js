@@ -10,8 +10,8 @@ module.exports = {
         "node": true
     },
     "extends": [
-        "eslint:recommended",
-        "arms/index"
+        "eslint:recommended" //,
+        // "arms/index"
     ],
     "parserOptions": {
         "sourceType": "module"
