@@ -10,11 +10,10 @@ import $$headerModule from '../module/header/header.js';
 
 // console.log('jq', $);
 
-$(document).ready(function () {
+$(document).ready(function() {
   const env = NODE_ENV;
   ((x) => {
     $$log.log('NODE_ENV: ', x);
   })(env);
   $$headerModule.init();
 });
-
