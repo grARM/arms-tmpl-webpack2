@@ -1,23 +1,21 @@
 /* eslint no-console: "off" */
-let $$tools = require('./tools.js');
+const $$tools = require('./tools.js');
 // console.log('NODE_ENV: ', NODE_ENV);
-let log = function(){};
-if(NODE_ENV != 'prodution'){
-    log = console.log;
+let log = function () {};
+if (NODE_ENV !== 'prodution') {
+  log = console.log;
 }
 
-let alertIE = function(str){
-    if($$tools.isIE() && window.alertIEopen){
-        //alert.apply(this, arguments);
-        alert(str);
-    }
-    
-    // alert.apply(this, arguments);
-    
+const alertIE = function (str) {
+  if ($$tools.isIE() && window.alertIEopen) {
+    //alert.apply(this, arguments);
+    alert(str);
+  }
+  // alert.apply(this, arguments);
 };
 
 
 module.exports = {
-    log: log,
-    alertIE: alertIE
+  log,
+  alertIE
 };

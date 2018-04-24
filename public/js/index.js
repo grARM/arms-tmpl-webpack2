@@ -1,4 +1,4 @@
-/*! This file is modified at:1524557766459 */
+/*! This file is modified at:1524560004289 */
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -78,25 +78,24 @@ module.exports = jQuery;
 /***/ (function(module, exports, __webpack_require__) {
 
 /* eslint no-console: "off" */
-let $$tools = __webpack_require__(7);
+const $$tools = __webpack_require__(7);
 // console.log('NODE_ENV: ', NODE_ENV);
 let log = function () {};
 if (true) {
-    log = console.log;
+  log = console.log;
 }
 
-let alertIE = function (str) {
-    if ($$tools.isIE() && window.alertIEopen) {
-        //alert.apply(this, arguments);
-        alert(str);
-    }
-
-    // alert.apply(this, arguments);
+const alertIE = function (str) {
+  if ($$tools.isIE() && window.alertIEopen) {
+    //alert.apply(this, arguments);
+    alert(str);
+  }
+  // alert.apply(this, arguments);
 };
 
 module.exports = {
-    log: log,
-    alertIE: alertIE
+  log,
+  alertIE
 };
 
 /***/ }),
@@ -143,7 +142,7 @@ __webpack_require__(3);
 // console.log('jq', $);
 
 $(document).ready(function () {
-  let env = "dev";
+  const env = "dev";
   (x => {
     __WEBPACK_IMPORTED_MODULE_0__lib_log_js___default.a.log('NODE_ENV: ', x);
   })(env);

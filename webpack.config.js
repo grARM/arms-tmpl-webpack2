@@ -87,7 +87,8 @@ module.exports = {
         rules:[
             {
                 test: /\.js$/,
-                loader: ['babel-loader', 'eslint-loader']
+                loader: ['babel-loader', 'eslint-loader'],
+                exclude: /node_modules/
             },
             {
                 test: /\.(css|scss)$/,
